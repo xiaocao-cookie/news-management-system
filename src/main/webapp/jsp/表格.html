@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格</title>
+
+
+    <!--  必须先引入jQuery.js，bootstrap才会起作用   -->
+    <script src="../bootstrap-3.3.7/js/jquery-3.2.1.min.js"></script>
+
+    <link href="../bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script src="../layui/layui.all.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="col-md-8 col-md-offset-2">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>#</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+            </tr>
+            <tr class="warning">
+                <td>1</td>
+                <td>101</td>
+                <td>陈一</td>
+                <td>男</td>
+            </tr>
+            <tr class="info">
+                <td>2</td>
+                <td>102</td>
+                <td>刘二</td>
+                <td>女</td>
+            </tr>
+            <tr class="warning">
+                <td>3</td>
+                <td>103</td>
+                <td>张三</td>
+                <td>男</td>
+            </tr>
+            <tr class="success">
+                <td>4</td>
+                <td>104</td>
+                <td>李四</td>
+                <td>男</td>
+            </tr>
+            <tr class="warning">
+                <td>5</td>
+                <td>105</td>
+                <td>王五</td>
+                <td>女</td>
+            </tr>
+            <tr class="info">
+                <td>6</td>
+                <td>106</td>
+                <td>赵六</td>
+                <td>女</td>
+            </tr>
+            <tr class="warning">
+                <td>7</td>
+                <td>107</td>
+                <td>钱七</td>
+                <td>男</td>
+            </tr>
+            <tr class="info">
+                <td>8</td>
+                <td>108</td>
+                <td>孙八</td>
+                <td>男</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-8 col-md-offset-3">
+        <div id="pageBar"></div>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>#</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>#</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>#</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>#</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+        </tr>
+        <tr class="active">
+            <td>1</td>
+            <td>101</td>
+            <td>陈一</td>
+            <td>男</td>
+        </tr>
+        <tr class="info">
+            <td>2</td>
+            <td>102</td>
+            <td>刘二</td>
+            <td>女</td>
+        </tr>
+        <tr class="active">
+            <td>3</td>
+            <td>103</td>
+            <td>张三</td>
+            <td>男</td>
+        </tr>
+        <tr class="info">
+            <td>4</td>
+            <td>104</td>
+            <td>李四</td>
+            <td>男</td>
+        </tr>
+        <tr class="active">
+            <td>5</td>
+            <td>105</td>
+            <td>王五</td>
+            <td>女</td>
+        </tr>
+        <tr class="info">
+            <td>6</td>
+            <td>106</td>
+            <td>赵六</td>
+            <td>女</td>
+        </tr>
+        <tr class="active">
+            <td>7</td>
+            <td>107</td>
+            <td>钱七</td>
+            <td>男</td>
+        </tr>
+        <tr class="info">
+            <td>8</td>
+            <td>108</td>
+            <td>孙八</td>
+            <td>男</td>
+        </tr>
+    </table>
+</div>
+<script>
+    layui.use('laypage',function () {
+        var laypage = layui.laypage;
+
+        laypage.render({
+            elem:'pageBar',
+            count:'50',
+            theme:'#2F4056',
+            layout:['prev','page','next','limit','count'],
+            limit: 5,
+            limits:[5,10,15,20],
+            groups:3,
+            jump:function (obj,first) {
+                console.log(obj.curr);
+                console.log(obj.limit);
+
+                if (!first){
+
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>
