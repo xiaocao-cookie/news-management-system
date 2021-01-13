@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace: 对应dao的全限定名(包名+接口名),也就是../*Mapper
+-->
+<mapper namespace="com.zhang.dao.UserMapper">
+    <insert id="register">
+        INSERT INTO news_user(`uid`, `loginName`, `password`, `sex`, `phone`, `idCard`, `type`)
+        VALUES (null , #{loginName}, #{password}, #{sex}, #{phone}, #{idCard}, 1)
+    </insert>
+
+    <select id="loginUser" resultType="com.zhang.entity.User">
+        SELECT * FROM `news_user`
+        WHERE loginName = #{loginName} AND `password` = #{password}
+    </select>
+</mapper>

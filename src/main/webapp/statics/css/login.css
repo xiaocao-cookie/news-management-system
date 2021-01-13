@@ -1,0 +1,26 @@
+body{
+    background: url("../img/login.png") no-repeat center;
+    background-size: 100% 431px;
+    background-position-y: 65px;
+}
+#loginNameIcon, #passwordIcon,#phoneIcon,#idCardIcon,#rePasswordIcon{
+    position: relative;
+    top: 28px;
+    left: 10px;
+}
+#loginName, #password,#phone,#idCard,#rePassword{
+    padding-left: 30px;
+    height: 40px;
+}
+#loginButton,#registerButton,#resetButton{
+    padding: 8px 20px;
+    border-radius: 20px;
+}
+#tips{
+    margin-left: 32%;
+    font-size: 13px;
+    font-weight: bolder;
+}
+#go:hover{
+    color: purple;
+}
