@@ -19,4 +19,5 @@ public class News {
     private Date nCreateDate;
     private Date nModifyDate;
     private String nPicPath;
+
 }

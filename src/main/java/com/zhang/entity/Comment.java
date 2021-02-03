@@ -14,5 +14,8 @@ public class Comment {
     private Integer cnid;
     private String ccontent;
     private Date cdate;
-    private String cauthor;
+    private String cauthorId;  //对应user中的uid
+
+    private String ntitle;
+    private String loginName;
 }

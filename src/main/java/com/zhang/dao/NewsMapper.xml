@@ -6,4 +6,17 @@
 -->
 <mapper namespace="com.zhang.dao.NewsMapper">
 
+    <select id="getHotNews" resultType="com.zhang.entity.News">
+        SELECT * FROM `news` ORDER BY ncreateDate DESC LIMIT 0,10
+    </select>
+
+    <select id="getAllNews" resultType="com.zhang.entity.News">
+        SELECT * FROM `news` WHERE ntid = #{id}
+    </select>
+    <select id="queryPageNews" resultType="com.zhang.entity.News">
+        SELECT * FROM `news` limit #{from},#{pageSize}
+    </select>
+    <select id="queryNewsTotal" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM `news`
+    </select>
 </mapper>

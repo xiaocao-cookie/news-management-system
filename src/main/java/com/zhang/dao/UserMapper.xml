@@ -14,4 +14,7 @@
         SELECT * FROM `news_user`
         WHERE loginName = #{loginName} AND `password` = #{password}
     </select>
+    <select id="getUserLists" resultType="com.zhang.entity.User">
+        SELECT * FROM `news_user`
+    </select>
 </mapper>

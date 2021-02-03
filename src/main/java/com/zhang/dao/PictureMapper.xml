@@ -4,6 +4,6 @@
 <!--
     namespace: 对应dao的全限定名(包名+接口名),也就是../*Mapper
 -->
-<mapper namespace="com.zhang.dao.AdvertiseMapper">
+<mapper namespace="com.zhang.dao.PictureMapper">
 
 </mapper>

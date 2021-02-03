@@ -7,21 +7,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>footer</title>
-
-    <!--  引入jQuery.js,灵活的为页面中的组件添加事件   -->
-    <script src="../../statics/bootstrap-3.3.7/js/jquery-3.2.1.min.js"></script>
-    <!--bootstrap框架-->
-    <link href="../../statics/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script src="../../statics/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </head>
-<style>
-    #footer{
-        position: absolute;
-        bottom: 0;
-        margin-left: 27%;
-        text-align: center;
-    }
-</style>
+
 <body>
 <div id="footer">
     24小时客户服务热线：4000520066 010-82623378 常见问题解答 互联网违法和不良信息举报<br>
@@ -37,4 +24,11 @@
     新浪公司 版权所有<br>
 </div>
 </body>
+<style>
+    #footer{
+        bottom: 0;
+        margin-left: auto;
+        text-align: center;
+    }
+</style>
 </html>

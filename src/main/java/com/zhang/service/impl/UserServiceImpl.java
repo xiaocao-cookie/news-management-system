@@ -6,6 +6,8 @@ import com.zhang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -24,6 +26,13 @@ public class UserServiceImpl implements UserService {
     public int register(User user) {
         int i = userMapper.register(user);
         return i;
+    }
+
+    //获取用户列表
+    @Override
+    public List<User> getUserLists() {
+        List<User> userList = userMapper.getUserLists();
+        return userList;
     }
 
 

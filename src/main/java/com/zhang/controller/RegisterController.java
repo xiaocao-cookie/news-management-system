@@ -17,11 +17,13 @@ public class RegisterController {
     @Resource
     public UserService userService;
 
+    //去注册
     @RequestMapping("/toRegister")
     public String toRegister(){
         return "pre/register";
     }
 
+    //注册
     @RequestMapping("/register")
     public String register(
             @RequestParam("loginName") String loginName,

@@ -1,4 +1,4 @@
-body{
+#body{
     background: url("../img/login.png") no-repeat center;
     background-size: 100% 431px;
     background-position-y: 65px;
@@ -21,6 +21,9 @@ body{
     font-size: 13px;
     font-weight: bolder;
 }
-#go:hover{
-    color: purple;
+#toLogin,#toRegister{
+    color: #0f0f0f;
+}
+#toLogin:hover,#toRegister:hover{
+    color: #00FFFF;
 }

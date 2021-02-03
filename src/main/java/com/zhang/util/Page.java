@@ -1,6 +1,5 @@
 package com.zhang.util;
 
-import com.zhang.entity.Advertise;
 import com.zhang.entity.News;
 import com.zhang.entity.Topic;
 import com.zhang.entity.User;
@@ -22,7 +21,6 @@ public class Page {
     private List<User> userList;                    //用户信息
     private List<News> newsList;
     private List<Topic> topicList;
-    private List<Advertise> advertiseList;
 
     public void setTotalCount(int totalCount) {
         if(totalCount > 0){

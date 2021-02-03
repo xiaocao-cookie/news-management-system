@@ -1,0 +1,14 @@
+#userPanelTitle,#topicPanelTitle,#newsPanelTitle,#commentsPanelTitle{
+    color: white;
+}
+.active a{
+    background-color: #2F4056;
+    color: white;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #eef3ec;
+    cursor: default;
+    background-color: #2F4056;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}

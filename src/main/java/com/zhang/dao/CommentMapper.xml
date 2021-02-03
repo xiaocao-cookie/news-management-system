@@ -6,4 +6,16 @@
 -->
 <mapper namespace="com.zhang.dao.CommentMapper">
 
+    <resultMap id="comment" type="com.zhang.entity.Comment">
+        <result column="ntitle" property="ntitle"/>
+        <result column="loginName" property="loginName"/>
+    </resultMap>
+    <select id="queryPersonalComment" resultMap="comment">
+        SELECT n.ntitle ntitle,u.loginName loginName,c.* FROM `news` n,`news_comments` c,`news_user` u
+        WHERE n.nid = c.cnid AND u.uid = c.cauthorId AND c.cauthorId = #{cAuthorId}
+    </select>
+    <select id="queryAllComment" resultMap="comment">
+        SELECT n.ntitle ntitle,u.loginName loginName,c.* FROM `news` n,`news_comments` c,`news_user` u
+        WHERE n.nid = c.cnid AND u.uid = c.cauthorId
+    </select>
 </mapper>

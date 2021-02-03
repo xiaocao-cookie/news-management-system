@@ -10,7 +10,7 @@
     <title>Register</title>
 
 </head>
-<body>
+<body id="body">
 <%@ include file="../common/header.jsp"%>
 <div class="container">
     <div class="col-md-4 col-md-offset-4">
@@ -54,9 +54,10 @@
                 </div>
             </div>
         </form>
-        <span id="tips">已有账号？&nbsp;&nbsp;<a href="${ctx}/Login/toLogin" id="go">去登录>></a></span>
+        <span id="tips">已有账号？&nbsp;&nbsp;<a href="${ctx}/Login/toLogin" id="toLogin">去登录>></a></span>
     </div>
 </div>
+<br><br>
 <%@ include file="../common/footer.jsp"%>
 </body>
 </html>

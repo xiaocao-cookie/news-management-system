@@ -19,7 +19,7 @@
 </head>
 <body>
 <%
-    response.sendRedirect(request.getContextPath()+"/Login/toLogin");
+    response.sendRedirect(request.getContextPath()+"/Home/newsLists");
 %>
 This is my JSP page. <br>
 </body>

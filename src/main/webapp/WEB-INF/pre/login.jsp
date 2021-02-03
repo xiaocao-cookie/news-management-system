@@ -8,9 +8,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-
 </head>
-<body>
+<body id="body">
 <%@ include file="../common/header.jsp"%>
 <div class="container">
     <div class="col-md-4 col-md-offset-4">
@@ -35,9 +34,10 @@
                 </div>
             </div>
         </form>
-        <span id="tips">还没有账号？<a href="${ctx}/Register/toRegister" id="go">去注册>></a></span>
+        <span id="tips">还没有账号？<a href="${ctx}/Register/toRegister" id="toRegister">去注册>></a></span>
     </div>
 </div>
+<br><br><br><br><br>
 <%@ include file="../common/footer.jsp"%>
 </body>
 </html>

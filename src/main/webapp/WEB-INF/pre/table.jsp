@@ -74,7 +74,7 @@
         </table>
     </div>
     <div class="col-md-8 col-md-offset-3">
-        <%@ include file="pageBar.jsp"%>
+        <%@ include file="../common/pageBar.jsp"%>
 <%--        <c:import url="pageBar.jsp"/>--%>
     </div>
 </div>

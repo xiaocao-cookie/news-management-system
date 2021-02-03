@@ -1,0 +1,33 @@
+#firstSlide,#secondSlide,#thirdSlide,#fourSlide,#fifthSlide,#sixSlide{
+    width: 1200px;
+    height: 400px;
+}
+#firstText,#secondText,#thirdText,#fourText,#fifthText,#sixText{
+    font-size: larger;
+}
+#panel{
+    height: 400px;
+}
+#leftThumbnail{
+    height: 100px;
+}
+#rightThumbnailLarge{
+    margin-top: 76px;
+    width: 140px;
+    height: 100px;
+    position: relative;
+    left: -14px;
+}
+#rightThumbnailSmall{
+    margin-top: 76px;
+    width: 140px;
+    height: 100px;
+    position: relative;
+    left: -10px;
+}
+#topicName{
+    font-size: 30px;
+    font-family: 楷体;
+    font-weight: bolder;
+    color: #2b669a;
+}

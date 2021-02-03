@@ -5,5 +5,19 @@
     namespace: 对应dao的全限定名(包名+接口名),也就是../*Mapper
 -->
 <mapper namespace="com.zhang.dao.TopicMapper">
-
+    <insert id="addTopicName">
+        INSERT INTO `news_topic`( `tname`) VALUES (#{topicName})
+    </insert>
+    <select id="getAllTopics" resultType="com.zhang.entity.Topic">
+        SELECT * FROM `news_topic` ORDER BY tid ASC
+    </select>
+    <select id="queryTotalCounts" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM `news_topic`
+    </select>
+    <select id="queryPageTopic" resultType="com.zhang.entity.Topic">
+        SELECT * FROM `news_topic` ORDER BY tid ASC limit #{from},#{pageSize}
+    </select>
+    <select id="queryTopicNameByNewName" resultType="java.lang.String">
+        SELECT * FROM `news_topic` WHERE tname = #{newTopicName}
+    </select>
 </mapper>
