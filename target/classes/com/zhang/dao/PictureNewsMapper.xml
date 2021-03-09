@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace: 对应dao的全限定名(包名+接口名),也就是../*Mapper
+-->
+<mapper namespace="com.zhang.dao.PictureNewsMapper">
+
+    <select id="queryPictureNewsByPtid" resultType="com.zhang.entity.PictureNews">
+        SELECT * FROM news_picture WHERE ptid = #{ptid}
+    </select>
+    <select id="queryPictureNewsByPtitle" resultType="com.zhang.entity.PictureNews">
+        SELECT * FROM `news_picture` WHERE ptitle LIKE CONCAT('%',#{ptitle},'%')
+    </select>
+    <select id="queryPictureNewsByPid" resultType="com.zhang.entity.PictureNews">
+        SELECT * FROM `news_picture` WHERE pid = #{pid}
+    </select>
+</mapper>
