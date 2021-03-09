@@ -20,4 +20,7 @@
     <select id="queryTopicNameByNewName" resultType="java.lang.String">
         SELECT * FROM `news_topic` WHERE tname = #{newTopicName}
     </select>
+    <select id="queryTopicNameById" resultType="java.lang.String">
+        SELECT tname FROM `news_topic` WHERE tid = #{tid}
+    </select>
 </mapper>

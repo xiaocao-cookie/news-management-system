@@ -14,4 +14,6 @@ public interface TopicService {
     public String queryTopicNameByNewName(String newTopicName);
     //添加主题
     public Integer addTopicName(String topicName);
+    //通过主题id查询主题名
+    public String queryTopicNameById(Integer tid);
 }

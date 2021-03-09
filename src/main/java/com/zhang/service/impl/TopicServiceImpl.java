@@ -54,4 +54,10 @@ public class TopicServiceImpl implements TopicService {
         Integer i = topicMapper.addTopicName(topicName);
         return i;
     }
+
+    @Override
+    public String queryTopicNameById(Integer tid) {
+        String topicName = topicMapper.queryTopicNameById(tid);
+        return topicName;
+    }
 }

@@ -3,8 +3,10 @@ package com.zhang.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.commons.fileupload.util.LimitedInputStream;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -14,8 +16,11 @@ public class Comment {
     private Integer cnid;
     private String ccontent;
     private Date cdate;
-    private String cauthorId;  //对应user中的uid
+    private Integer cauthorId;  //对应user中的uid
 
     private String ntitle;
     private String loginName;
+
+    private List<Comment> commentList;
+    private List<User> userList;
 }

@@ -16,7 +16,7 @@ $(function () {
          $("#personCommentNav").tab('show')
      });
      $("#allComments").click(function () {
-         $("#allCommentsNav").tab('show')
+         $("#allCommentsNav").tab('show');
      });
      //因为添加用户需要显示的是模态框，所以通过按钮单击事件是模态框显示
      $("#userAdd").click(function () {

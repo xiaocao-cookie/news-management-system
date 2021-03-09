@@ -130,6 +130,7 @@
                                 </c:forEach>
                                 </tbody>
                             </table>
+                            <%@include file="../../common/pageBar.jsp"%>
                         </div>
                     </div>
                 </div>
@@ -144,52 +145,61 @@
                         </div>
                         <div class="col-md-8 col-md-offset-3">
                             <div class="modal-body">
-                                <form class="form-inline">
+                                <form class="form-inline" action="${ctx}/user/addUser">
                                     <div class="form-group">
-                                        <label for="addName">姓名</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="text" class="form-control" id="addName">
+                                        &nbsp;&nbsp;
+                                        登录名
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="text" name="loginName" class="form-control" id="loginName" placeholder="长度在4-16的范围内" required pattern="[A-Za-z0-9]{4,16}" style="padding-left: 10px;width: 214px">
                                     </div>
                                     <br><br>
                                     <div class="form-group">
-                                        <label for="addPwd">密码</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="password" class="form-control" id="addPwd">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        <label for="addAge">年龄</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="text" class="form-control" id="addAge">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        <label for="addBir">生日</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="date" class="form-control" id="addBir" style="width: 170px">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        <label for="addPhone">手机号</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="text" class="form-control" id="addPhone">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        <label for="addState">激活状态</label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <select id="addState">
-                                            <option class="active">激活</option>
-                                            <option>未激活</option>
+                                        密码
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="password" class="form-control" id="addPwd" name="password" placeholder="密码由六位数字组成" autocomplete="off" required pattern="[0-9]{6}" style="width: 214px;height:40px">
+                                    </div>
+                                    <br><br>
+                                    <div class="form-group">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        性别
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" class="form-control" name="sex" value="0" checked>男
+                                        <input type="radio" class="form-control" name="sex" value="1">女
+                                    </div>
+                                    <br><br>
+                                    <div class="form-group">
+                                        &nbsp;&nbsp;
+                                        手机号
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="text" class="form-control" id="telphone" name="telphone" placeholder="以13、15、18开头"  required pattern="1[3,5,8]\d{9}" style="margin-left:3px;width: 214px;height:40px">
+                                    </div>
+                                    <br><br>
+                                    <div class="form-group">
+                                        身份证号
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="text" class="form-control" id="idCard" name="idCard" style="padding-left: 10px;width: 214px" placeholder="请输入18位的身份证号" required pattern="[1-9]\d{5}(18|19|20|(3\d))\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]">
+                                    </div>
+                                    <br><br>
+                                    <div class="form-group">
+                                        用户类型
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <select class="form-control" id="userType" name="userType">
+                                            <option class="active" value="1">普通用户</option>
+                                            <option value="0">管理员</option>
                                         </select>
+                                    </div>
+                                    <br><br>
+                                    <div class="form-group text-center" style="margin-left: 200px">
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                        <button type="reset" class="btn btn-default" data-dismiss="modal">关闭</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">提交</button>
-                            <button type="reset" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <hr style="display: none">
                         </div>
                     </div>
                 </div>

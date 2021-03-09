@@ -49,4 +49,22 @@ public class NewsServiceImpl implements NewsService {
 
         return page;
     }
+
+    @Override
+    public List<News> queryNewsByNtid(Integer ntid) {
+        List<News> newsList = newsMapper.queryNewsByNtid(ntid);
+        return newsList;
+    }
+
+    @Override
+    public List<News> queryNewsByNtitle(String ntitle) {
+        List<News> newsList = newsMapper.queryNewsByNtitle(ntitle);
+        return newsList;
+    }
+
+    @Override
+    public News queryNewsById(Integer nid) {
+        News news = newsMapper.queryNewsById(nid);
+        return news;
+    }
 }

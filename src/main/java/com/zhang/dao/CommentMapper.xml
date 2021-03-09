@@ -14,8 +14,16 @@
         SELECT n.ntitle ntitle,u.loginName loginName,c.* FROM `news` n,`news_comments` c,`news_user` u
         WHERE n.nid = c.cnid AND u.uid = c.cauthorId AND c.cauthorId = #{cAuthorId}
     </select>
-    <select id="queryAllComment" resultMap="comment">
-        SELECT n.ntitle ntitle,u.loginName loginName,c.* FROM `news` n,`news_comments` c,`news_user` u
+    <select id="queryPageComment" resultMap="comment">
+        SELECT n.ntitle ntitle,u.loginName loginName,c.*
+        FROM `news` n,`news_comments` c,`news_user` u
         WHERE n.nid = c.cnid AND u.uid = c.cauthorId
+        limit #{from},#{pageSize}
+    </select>
+    <select id="queryTotalCounts" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM `news_comments`
+    </select>
+    <select id="queryCommentsByCnid" resultType="com.zhang.entity.Comment">
+        SELECT * FROM `news_comments` WHERE cnid = #{cnid}
     </select>
 </mapper>

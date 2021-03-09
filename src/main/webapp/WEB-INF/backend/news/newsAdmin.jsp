@@ -46,7 +46,9 @@
                             <c:forEach items="${newsList}" var="temp">
                                 <tr>
                                     <td id="nid">${temp.nid}</td>
-                                    <td id="ntitle" style="width: 400px">${temp.ntitle}</td>
+                                    <td id="ntitle" style="width: 400px">
+                                          <a href="${ctx}/news/queryNewsDetails?id=${temp.nid}">${temp.ntitle}</a>
+                                    </td>
                                     <td class="text-center" id="nauthor" style="width: 100px">${temp.nauthor}</td>
                                     <td>
                                         <button class="btn btn-primary" type="button" id="modifyNews">修改</button>

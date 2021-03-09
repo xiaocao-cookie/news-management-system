@@ -149,52 +149,61 @@
                         </div>
                         <div class="col-md-8 col-md-offset-3">
                             <div class="modal-body">
-                                <form class="form-inline">
+                                <form class="form-inline" action="${ctx}/user/addUser">
                                     <div class="form-group">
-                                        <label for="addName">姓名</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="text" class="form-control" id="addName">
+                                        &nbsp;&nbsp;
+                                        登录名
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="text" name="loginName" class="form-control" id="loginName">
                                     </div>
                                     <br><br>
                                     <div class="form-group">
-                                        <label for="addPwd">密码</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="password" class="form-control" id="addPwd">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        <label for="addAge">年龄</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="text" class="form-control" id="addAge">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        <label for="addBir">生日</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="date" class="form-control" id="addBir" style="width: 170px">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        <label for="addPhone">手机号</label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="text" class="form-control" id="addPhone">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        <label for="addState">激活状态</label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <select id="addState">
-                                            <option class="active">激活</option>
-                                            <option>未激活</option>
+                                        密码
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="password" class="form-control" id="addPwd" name="password" style="width: 214px;height:40px">
+                                    </div>
+                                    <br><br>
+                                    <div class="form-group">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        性别
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" class="form-control" name="sex" value="0" checked>男
+                                        <input type="radio" class="form-control" name="sex" value="1">女
+                                    </div>
+                                    <br><br>
+                                    <div class="form-group">
+                                        &nbsp;&nbsp;
+                                        手机号
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="text" class="form-control" id="telphone" name="telphone" style="margin-left:3px;width: 214px;height:40px">
+                                    </div>
+                                    <br><br>
+                                    <div class="form-group">
+                                        身份证号
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="text" class="form-control" id="idCard" name="idCard">
+                                    </div>
+                                    <br><br>
+                                    <div class="form-group">
+                                        用户类型
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <select class="form-control" id="userType" name="userType">
+                                            <option class="active" value="1">普通用户</option>
+                                            <option value="0">管理员</option>
                                         </select>
+                                    </div>
+                                    <br><br>
+                                    <div class="form-group text-center" style="margin-left: 200px">
+                                        <button type="submit" class="btn btn-primary">提交</button>
+                                        <button type="reset" class="btn btn-default" data-dismiss="modal">关闭</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">提交</button>
-                            <button type="reset" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <hr style="display: none">
                         </div>
                     </div>
                 </div>

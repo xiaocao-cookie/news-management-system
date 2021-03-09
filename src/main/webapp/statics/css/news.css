@@ -1,0 +1,67 @@
+#otherNews{
+    font-size: 48px;
+}
+#headline{
+    font-size: 48px;
+}
+#otherContent1,#otherContent2,#otherContent3{
+    font-size: 36px;
+}
+#commentsTable tr{
+    border-style: none none solid none;
+}
+#topicNewsTable tr{
+    height: 100px;
+    border-bottom: 1px #1b6d85 solid;
+    border-top: 1px #1b6d85 solid;
+}
+/*  搜狐号推荐  */
+#sohuRecommend{
+    color: #009688;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-left: 40px;
+}
+#limaoTitle,#roushuTitle,#tanziTitle,#xguanxiTitle,#juziTitle{
+    font-size: 18px;
+    color: #009688;
+}
+/*  搜索框  */
+#keywords{
+    width: 351px;
+    height: 40px;
+}
+#searchButton{
+    width: 70px;
+    height: 40px;
+}
+/*一般新闻详情页*/
+#headline,#hotRecommend{
+    color: #009688;
+    font-size: 20px;
+    font-weight: bolder;
+}
+#reply{
+    position: relative;
+    left: -20px;
+}
+#commentsSubmit{
+    margin-left: 15px;
+}
+#hotNews{
+    color: black;
+    text-decoration: none;
+}
+#hotNews:hover{
+    color: #2aabd2;
+}
+/*图片新闻详情*/
+#content1,#content2,#content3{
+    margin-left: 25px;
+    font-size: 15px;
+}
+#otherRecommand{
+    color: #009688;
+    font-size: 20px;
+    font-weight: bolder;
+}

@@ -33,7 +33,7 @@
             <!--身份证输入框-->
             <div class="form-group">
                 <span class="glyphicon glyphicon-leaf" id="idCardIcon"></span>
-                <input type="text" class="form-control" id="idCard" name="idCard" placeholder="身份证号" required pattern="[0-9]{18}">
+                <input type="text" class="form-control" id="idCard" name="idCard" placeholder="身份证号" required pattern="[1-9]\d{5}(18|19|20|(3\d))\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]">
             </div>
             <%--性别选择框--%>
             <div class="form-group">

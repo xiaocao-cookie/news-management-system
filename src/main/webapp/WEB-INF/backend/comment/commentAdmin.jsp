@@ -63,17 +63,15 @@
                                 <tr>
                                     <div class="container">
                                         <th class="col-md-6 text-center">评论的新闻标题</th>
-                                        <th class="col-md-2 text-center">评论内容</th>
-                                        <th class="col-md-2 text-center">评论时间</th>
-                                        <th class="col-md-2 text-center">评论人</th>
+                                        <th class="col-md-3 text-center">评论内容</th>
+                                        <th class="col-md-3 text-center">评论时间</th>
                                     </div>
                                 </tr>
-                                <c:forEach items="${commentList}" var="temp">
+                                <c:forEach items="${temp.commentList}" var="temp">
                                     <tr>
                                         <td><a style="background-color: white;color: #0f0f0f" href="#">${temp.ntitle}</a></td>
                                         <td>${temp.ccontent}</td>
                                         <td><fmt:formatDate value="${temp.cdate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                                        <td>${temp.loginName}</td>
                                     </tr>
                                 </c:forEach>
                             </table>
@@ -82,7 +80,6 @@
                 </c:forEach>
             </div>
         </div>
-
     </div>
 </div>
 <br><br>

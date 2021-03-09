@@ -9,12 +9,22 @@
         INSERT INTO news_user(`uid`, `loginName`, `password`, `sex`, `phone`, `idCard`, `type`)
         VALUES (null , #{loginName}, #{password}, #{sex}, #{phone}, #{idCard}, 1)
     </insert>
+    <insert id="addUser">
+        INSERT INTO `news_user`(`loginName`, `password`, `sex`, `phone`, `idCard`, `type`)
+        VALUES (#{loginName},#{password},#{sex},#{phone},#{idCard},#{type});
+    </insert>
 
     <select id="loginUser" resultType="com.zhang.entity.User">
         SELECT * FROM `news_user`
         WHERE loginName = #{loginName} AND `password` = #{password}
     </select>
-    <select id="getUserLists" resultType="com.zhang.entity.User">
-        SELECT * FROM `news_user`
+    <select id="getPageUsers" resultType="com.zhang.entity.User">
+        SELECT * FROM `news_user` limit #{from},#{pageSize}
+    </select>
+    <select id="queryTotalCount" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM news_user
+    </select>
+    <select id="queryUserById" resultType="com.zhang.entity.User">
+        SELECT * FROM `news_user` WHERE uid = #{uid}
     </select>
 </mapper>

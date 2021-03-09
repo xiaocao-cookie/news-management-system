@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!--  引入jQuery.js,灵活的为页面中的组件添加事件   -->
+    <script src="../../statics/bootstrap-3.3.7/js/jquery-3.2.1.min.js"></script>
+    <!--bootstrap框架-->
+    <link href="../../statics/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../statics/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br><br><br>
+<div class="row">
+    <form action="#" method="post" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-8 col-md-offset-2">
+                <textarea class="form-control" rows="3" placeholder="请输入评论内容。。。"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-2 col-md-offset-8">
+                <button type="submit" class="form-control btn btn-info">发表评论</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <table class="table table-hover" id="commentsTable">
+            <tbody>
+                <tr>
+                    <td>评论内容：<br><br><br>
+                        评论人：<br>
+                        评论时间：
+                        <div class="col-md-3 col-md-offset-11">
+                            <button class="btn btn-primary" type="button" id="reply1" style="margin-right: 0">回复</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>评论内容：<br><br><br>
+                        评论人：<br>
+                        评论时间：
+                        <div class="col-md-3 col-md-offset-11">
+                            <button class="btn btn-primary" type="button" id="reply2" style="margin-right: 0">回复</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>评论内容：<br><br><br>
+                        评论人：<br>
+                        评论时间：
+                        <div class="col-md-3 col-md-offset-11">
+                            <button class="btn btn-primary" type="button" id="reply3" style="margin-right: 0">回复</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <table class="table table-hover" id="topicNewsTable">
+            <tbody>
+            <tr>
+                <td>
+                    <span style="margin-left: 10px;font-size: 24px">新闻标题</span><br><br><br><br><br>
+                    <div class="col-md-3" style="font-size: 15px">
+                        发布时间：
+                    </div>
+
+                    <div class="col-md-3 col-md-offset-3" style="font-size: 15px">
+                        责任编辑：
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span style="margin-left: 10px;font-size: 24px">新闻标题</span><br><br><br><br><br>
+                    <div class="col-md-3" style="font-size: 15px">
+                        发布时间：
+                    </div>
+
+                    <div class="col-md-3 col-md-offset-3" style="font-size: 15px">
+                        责任编辑：
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span style="margin-left: 10px;font-size: 24px">新闻标题</span><br><br><br><br><br>
+                    <div class="col-md-3" style="font-size: 15px">
+                        发布时间：
+                    </div>
+
+                    <div class="col-md-3 col-md-offset-3" style="font-size: 15px">
+                        责任编辑：
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+<style>
+    #commentsTable tr{
+        border-style: none none solid none;
+    }
+    #topicNewsTable tr{
+        border-style: solid none solid none;
+        height: 100px;
+        border: 3px black;
+    }
+</style>
+</html>

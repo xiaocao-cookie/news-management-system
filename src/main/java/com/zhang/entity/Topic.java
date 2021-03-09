@@ -14,4 +14,5 @@ public class Topic {
     private String tname;
 
     private List<News> newsList;
+    private List<PictureNews> pictureNewsList;
 }

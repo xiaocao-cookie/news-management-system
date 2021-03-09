@@ -12,4 +12,10 @@ public interface NewsService {
     public List<News> getAllNews(Integer id);
     //分页查询
     public Page queryPageNews(Integer currentPage);
+    //通过主题id查询新闻
+    public List<News> queryNewsByNtid(Integer ntid);
+    //模糊查询新闻
+    public List<News> queryNewsByNtitle(String ntitle);
+    //通过id查询新闻
+    public News queryNewsById(Integer nid);
 }

@@ -35,37 +35,37 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img src="${ctx}/statics/img/firstSlide.jpg" alt="江西致富小康路" id="firstSlide">
+                        <a href="${ctx}/news/queryPicNewsDetails?id=4"><img src="${ctx}/statics/img/firstSlide.jpg" alt="江西致富小康路" id="firstSlide"></a>
                         <div class="carousel-caption" id="firstText">
                             航拍江西新余深山“大动脉” 直通致富“小康路”
                         </div>
                     </div>
                     <div class="item">
-                        <img src="${ctx}/statics/img/secondSlide.jpg" alt="布氏鲸" id="secondSlide">
+                        <a href="${ctx}/news/queryPicNewsDetails?id=5"><img src="${ctx}/statics/img/secondSlide.jpg" alt="布氏鲸" id="secondSlide"></a>
                         <div class="carousel-caption" id="secondText">
                             布氏鲸现身涠洲岛海域
                         </div>
                     </div>
                     <div class="item">
-                        <img src="${ctx}/statics/img/thirdSlide.jpg" alt="公益钢琴课" id="thirdSlide">
+                        <a href="${ctx}/news/queryPicNewsDetails?id=6"><img src="${ctx}/statics/img/thirdSlide.jpg" alt="公益钢琴课" id="thirdSlide"></a>
                         <div class="carousel-caption" id="thirdText">
                             公益钢琴课添彩童年生活
                         </div>
                     </div>
                     <div class="item">
-                        <img src="${ctx}/statics/img/fourSlide.jpg" alt="山西青铜博物馆" id="fourSlide">
+                        <a href="${ctx}/news/queryPicNewsDetails?id=7"><img src="${ctx}/statics/img/fourSlide.jpg" alt="山西青铜博物馆" id="fourSlide"></a>
                         <div class="carousel-caption" id="fourText">
                             走进晋地青铜世界 旁观千年前的权力游戏
                         </div>
                     </div>
                     <div class="item">
-                        <img src="${ctx}/statics/img/fifthSlide.jpg" alt="山西青铜博物馆" id="fifthSlide">
+                        <a href="${ctx}/news/queryPicNewsDetails?id=2"><img src="${ctx}/statics/img/fifthSlide.jpg" alt="居家令" id="fifthSlide"></a>
                         <div class="carousel-caption" id="fifthText">
                             加拿大人口第一大省安大略省实施“居家令”
                         </div>
                     </div>
                     <div class="item">
-                        <img src="${ctx}/statics/img/sixSlide.png" alt="山西青铜博物馆" id="sixSlide">
+                        <a href="${ctx}/news/queryPicNewsDetails?id=3"><img src="${ctx}/statics/img/sixSlide.png" alt="校场：美新研洲际导弹，是否能改变世界军力天平" id="sixSlide"></a>
                         <div class="carousel-caption" id="sixText">
                             校场：美新研洲际导弹，是否能改变世界军力天平
                         </div>
@@ -92,7 +92,7 @@
                 <div class="panel-body">
                     <ul>
                         <c:forEach items="${hotNews}" var="temp">
-                            <li style="margin-left: -20px"><a href="#">${temp.ntitle}</a></li>
+                            <li style="margin-left: -20px"><a href="${ctx}/news/queryNewsDetails?id=${temp.nid}">${temp.ntitle}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -105,7 +105,7 @@
     </div>
     <%--每个主题下的新闻展示--%>
     <div class="row">
-        <c:forEach items="${topicList}" var="topic">
+        <c:forEach items="${sessionScope.topicList}" var="topic">
         <hr />
         <a href="#" id="topicName">${topic.tname}</a>
         <hr style="border-top: 5px solid #2aabd2"/>
@@ -117,23 +117,23 @@
         </c:if>
         <c:if test="${topic.newsList.size() != 0}">
             <%--左侧图片新闻--%>
-            <div class="col-md-3">
-                <a class="thumbnail" style="height: 380px" href="#">
-                    <img src="${ctx}/statics/img/baiduLogo.jpg" alt="..." style="height: 200px;width: 350px">
-                    <div class="caption">
-                        <h3>Thumbnail label</h3>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    </div>
-                </a>
-            </div>
+            <c:forEach items="${topic.pictureNewsList}" var="pictureNews" begin="1" step="1" end="1">
+                <div class="col-md-3">
+                    <a class="thumbnail" style="height: 380px" href="${ctx}/news/queryPicNewsDetails?id=${pictureNews.pid}">
+                        <img src="${ctx}/statics/img/${pictureNews.PPicPath1}" alt="..." style="height: 200px;width: 375px">
+                        <div class="caption">
+                            <h4>&nbsp;&nbsp;&nbsp;&nbsp;${pictureNews.ptitle};${pictureNews.pcontent1.substring(0,30)}...</h4>
+                        </div>
+                    </a>
+                </div>
+            </c:forEach>
             <%--中间主题新闻--%>
             <div class="col-md-6">
-
                 <ul>
                     <c:forEach items="${topic.newsList}" var="temp">
                         <div class="col-md-7">
                             <li>
-                                <a href="#">${temp.ntitle}</a>
+                                <a href="${ctx}/news/queryNewsDetails?id=${temp.nid}">${temp.ntitle}</a>
                             </li>
                         </div>
                         <div class="col-md-5">
@@ -145,22 +145,37 @@
             <br><br>
             <%--右侧图片新闻，附带广告图片--%>
             <div class="col-md-3">
-                <div class="row" style="height: 150px">
-                    <a href="#" class="thumbnail" style="margin-top: -30px">
-                        <img src="${ctx}/statics/img/baiduLogo.jpg"  style="height: 150px;width: 300px" alt="...">
-                    </a>
-                </div>
+                <c:forEach items="${topic.pictureNewsList}" var="pictureNews" begin="2" step="1" end="2">
+                    <div class="row" style="height: 150px">
+                        <a href="${ctx}/news/queryPicNewsDetails?id=${pictureNews.pid}" class="thumbnail" id="rightThumbnailTop" style="margin-top: -30px">
+                            <img src="${ctx}/statics/img/${pictureNews.PPicPath1}"  style="height: 150px;width: 300px" alt="...">
+                            <div class="caption">
+                                <h5>&nbsp;&nbsp;&nbsp;&nbsp;${pictureNews.ptitle};${pictureNews.pcontent1.substring(0,20)}...</h5>
+                            </div>
+                        </a>
+                    </div>
+                </c:forEach>
                 <div class="row" style="height: 220px">
-                    <div class="col-md-6">
-                        <a href="#" class="thumbnail" id="rightThumbnailLarge">
-                            <img src="${ctx}/statics/img/baiduLogo.jpg" style="height: 90px;width: 240px" alt="...">
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="#" class="thumbnail" id="rightThumbnailSmall">
-                            <img src="${ctx}/statics/img/baiduLogo.jpg" style="height: 90px;width: 240px;" alt="...">
-                        </a>
-                    </div>
+                    <c:forEach items="${topic.pictureNewsList}" var="pictureNews" begin="3" step="1" end="3">
+                        <div class="col-md-6">
+                            <a href="${ctx}/news/queryPicNewsDetails?id=${pictureNews.pid}" class="thumbnail" id="rightThumbnailLarge">
+                                <img src="${ctx}/statics/img/${pictureNews.PPicPath1}" style="height: 90px;width: 240px" alt="...">
+                                <div class="caption">
+                                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;${pictureNews.pcontent1.substring(0,13)}...</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </c:forEach>
+                    <c:forEach items="${topic.pictureNewsList}" var="pictureNews" begin="4" step="1" end="4">
+                        <div class="col-md-6">
+                            <a href="${ctx}/news/queryPicNewsDetails?id=${pictureNews.pid}" class="thumbnail" id="rightThumbnailSmall">
+                                <img src="${ctx}/statics/img/${pictureNews.PPicPath1}" style="height: 90px;width: 240px;" alt="...">
+                                <div class="caption">
+                                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;${pictureNews.pcontent1.substring(0,13)}...</h5>
+                                </div>
+                            </a>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </c:if>

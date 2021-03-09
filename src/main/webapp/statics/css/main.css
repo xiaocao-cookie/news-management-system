@@ -11,17 +11,20 @@
 #leftThumbnail{
     height: 100px;
 }
+#rightThumbnailTop{
+    height: 220px;
+}
 #rightThumbnailLarge{
-    margin-top: 76px;
+    margin-top: 45px;
     width: 140px;
-    height: 100px;
+    height: 150px;
     position: relative;
     left: -14px;
 }
 #rightThumbnailSmall{
-    margin-top: 76px;
+    margin-top: 45px;
     width: 140px;
-    height: 100px;
+    height: 150px;
     position: relative;
     left: -10px;
 }

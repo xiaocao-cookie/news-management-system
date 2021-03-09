@@ -15,6 +15,7 @@
 <link href="${ctx}/statics/css/pageBar.css" rel="stylesheet" type="text/css"/>
 <link href="${ctx}/statics/css/main.css" rel="stylesheet" type="text/css">
 <link href="${ctx}/statics/css/admin.css" rel="stylesheet" type="text/css"/>
+<link href="${ctx}/statics/css/news.css" rel="stylesheet" type="text/css">
 
 <%--js--%>
 <script src="${ctx}/statics/js/admin.js" type="text/javascript"></script>
@@ -44,22 +45,15 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <%--中部--%>
             <ul class="nav navbar-nav" id="navbarMiddle">
-                <li><a href="#">国内</a></li>
-                <li><a href="#">国际</a></li>
-                <li><a href="#">军事</a></li>
-                <li><a href="#">财经</a></li>
-                <li><a href="#">科技</a></li>
-                <li><a href="#">体育</a></li>
-                <li><a href="#">娱乐</a></li>
-                <li><a href="#">汽车</a></li>
-                <li><a href="#">时尚</a></li>
-                <li><a href="#">教育</a></li>
+                <c:forEach items="${sessionScope.topicList}" var="temp" begin="0" step="1" end="9">
+                    <li><a href="${ctx}/news/topicNews?id=${temp.tid}">${temp.tname}</a></li>
+                </c:forEach>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">更多<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">电影</a></li>
-                        <li><a href="#">历史</a></li>
-                        <li><a href="#">游戏</a></li>
+                        <c:forEach items="${sessionScope.topicList}" var="temp" begin="10" step="1">
+                            <li><a href="${ctx}/news/topicNews?id=${temp.tid}">${temp.tname}</a></li>
+                        </c:forEach>
                     </ul>
                 </li>
             </ul>

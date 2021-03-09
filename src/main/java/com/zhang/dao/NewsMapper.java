@@ -9,11 +9,17 @@ public interface NewsMapper {
     //获取热点新闻(时间逆序)
     public List<News> getHotNews();
     //获取各个主题下的新闻
-    public List<News> getAllNews(Integer id);
+    public List<News> getAllNews(Integer ntid);
     //获取所有新闻(带分页)
     public List<News> queryPageNews(
             @Param("from") Integer from,
             @Param("pageSize") Integer pageSize);
     //查询新闻总条数
     public Integer queryNewsTotal();
+    //通过主题id查询新闻
+    public List<News> queryNewsByNtid(Integer ntid);
+    //模糊查询新闻
+    public List<News> queryNewsByNtitle(String ntitle);
+    //通过id查询新闻
+    public News queryNewsById(Integer nid);
 }

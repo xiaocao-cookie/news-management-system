@@ -9,14 +9,22 @@
     <select id="getHotNews" resultType="com.zhang.entity.News">
         SELECT * FROM `news` ORDER BY ncreateDate DESC LIMIT 0,10
     </select>
-
     <select id="getAllNews" resultType="com.zhang.entity.News">
-        SELECT * FROM `news` WHERE ntid = #{id}
+        SELECT * FROM `news` WHERE ntid = #{ntid}
     </select>
     <select id="queryPageNews" resultType="com.zhang.entity.News">
         SELECT * FROM `news` limit #{from},#{pageSize}
     </select>
     <select id="queryNewsTotal" resultType="java.lang.Integer">
         SELECT COUNT(1) FROM `news`
+    </select>
+    <select id="queryNewsByNtid" resultType="com.zhang.entity.News">
+        SELECT * FROM `news` WHERE ntid = #{ntid}
+    </select>
+    <select id="queryNewsByNtitle" resultType="com.zhang.entity.News">
+        SELECT * FROM `news` WHERE ntitle LIKE CONCAT('%',#{ntitle},'%')
+    </select>
+    <select id="queryNewsById" resultType="com.zhang.entity.News">
+        SELECT * FROM `news` WHERE nid = #{nid}
     </select>
 </mapper>
