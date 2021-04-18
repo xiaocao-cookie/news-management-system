@@ -1,9 +1,6 @@
 package com.zhang.util;
 
-import com.zhang.entity.Comment;
-import com.zhang.entity.News;
-import com.zhang.entity.Topic;
-import com.zhang.entity.User;
+import com.zhang.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +20,7 @@ public class Page {
     private List<News> newsList;
     private List<Topic> topicList;
     private List<Comment> commentList;
+    private List<PictureNews> pictureNewsList;
 
     public void setTotalCount(int totalCount) {
         if(totalCount > 0){

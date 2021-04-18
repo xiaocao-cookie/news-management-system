@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace: 对应dao的全限定名(包名+接口名),也就是../*Mapper
+-->
+<mapper namespace="com.zhang.dao.ReplyMapper">
+
+    <insert id="addReply">
+        INSERT INTO `news_reply`(`rcid` , `content`, `rdate`, `rauthorId`)
+        VALUES (#{rcid}, #{content}, SYSDATE(), #{rauthorId});
+    </insert>
+    <insert id="addReply2">
+        INSERT INTO `news_reply`(`rid`, `content`, `rdate`, `rauthorId`)
+        VALUES (#{rid}, #{content}, SYSDATE(), #{rauthorId});
+    </insert>
+    <select id="queryRepliesByRcid" resultType="com.zhang.entity.Reply">
+        SELECT * FROM `news_reply` WHERE rcid = #{rcid}
+    </select>
+    <select id="queryRepliesByRid" resultType="com.zhang.entity.Reply">
+        SELECT * FROM `news_reply` WHERE rid = #{rid}
+    </select>
+</mapper>

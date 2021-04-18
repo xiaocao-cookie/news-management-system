@@ -5,6 +5,18 @@
     namespace: 对应dao的全限定名(包名+接口名),也就是../*Mapper
 -->
 <mapper namespace="com.zhang.dao.NewsMapper">
+    <insert id="addNews">
+        INSERT INTO `news`(`ntid`, `ntitle`, `ncontent`, `nauthor`, `ncreateDate`)
+        VALUES (#{ntid}, #{ntitle}, #{ncontent}, #{nauthor}, SYSDATE());
+    </insert>
+    <update id="modifyNews">
+        UPDATE `news`
+        SET `ntitle` = #{ntitle}, `ntid` = #{ntid}, `nauthor` = #{nauthor}, `ncontent` = #{ncontent}, `nmodifyDate` = SYSDATE()
+        WHERE `nid` = #{nid}
+    </update>
+    <delete id="deleteNewsById">
+        delete from news where nid = #{id}
+    </delete>
 
     <select id="getHotNews" resultType="com.zhang.entity.News">
         SELECT * FROM `news` ORDER BY ncreateDate DESC LIMIT 0,10

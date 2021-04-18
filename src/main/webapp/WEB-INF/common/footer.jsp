@@ -11,17 +11,17 @@
 
 <body>
 <div id="footer">
-    24小时客户服务热线：4000520066 010-82623378 常见问题解答 互联网违法和不良信息举报<br>
+    24小时客户服务热线：0000000000 000-00000000 常见问题解答 互联网违法和不良信息举报<br>
 
-    违法和不良信息举报电话：4000520066 举报邮箱：jubao@vip.sina.com<br>
+    违法和不良信息举报电话：0000000000 举报邮箱：jubao@vip.vnews.com<br>
 
     新闻中心意见反馈留言板<br>
 
-    新浪简介 | About Sina | 广告服务 | 联系我们 | 招聘信息 | 网站律师 | SINA English | 通行证注册 | 产品答疑<br>
+    新闻简介 | About Vnews | 广告服务 | 联系我们 | 招聘信息 | 网站律师 | VNEWS English | 通行证注册 | 产品答疑<br>
 
-    Copyright © 1996-2020 SINA Corporation, All Rights Reserved<br>
+    Copyright © 2019-2021 Vnews Corporation, All Rights Reserved<br>
 
-    新浪公司 版权所有<br>
+    XX公司 版权所有<br>
 </div>
 </body>
 <style>

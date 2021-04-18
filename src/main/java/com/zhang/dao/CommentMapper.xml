@@ -10,6 +10,14 @@
         <result column="ntitle" property="ntitle"/>
         <result column="loginName" property="loginName"/>
     </resultMap>
+    <insert id="addComment">
+        INSERT INTO `vnews`.`news_comments`(`cnid`, `ccontent`, `cdate`, `cauthorId`)
+        VALUES (#{cnid}, #{ccontent}, SYSDATE(), #{cauthorId});
+    </insert>
+    <insert id="addPicComment">
+        INSERT INTO `news_comments`(`cpid`, `ccontent`, `cdate`, `cauthorId`)
+        VALUES (#{cpid}, #{ccontent}, SYSDATE(), #{cauthorId});
+    </insert>
     <select id="queryPersonalComment" resultMap="comment">
         SELECT n.ntitle ntitle,u.loginName loginName,c.* FROM `news` n,`news_comments` c,`news_user` u
         WHERE n.nid = c.cnid AND u.uid = c.cauthorId AND c.cauthorId = #{cAuthorId}
@@ -24,6 +32,9 @@
         SELECT COUNT(1) FROM `news_comments`
     </select>
     <select id="queryCommentsByCnid" resultType="com.zhang.entity.Comment">
-        SELECT * FROM `news_comments` WHERE cnid = #{cnid}
+        SELECT * FROM `news_comments` WHERE cnid = #{cnid} ORDER BY cdate DESC
+    </select>
+    <select id="queryCommentListByCpid" resultType="com.zhang.entity.Comment">
+        SELECT * FROM `news_comments` WHERE cpid = #{cpid}
     </select>
 </mapper>

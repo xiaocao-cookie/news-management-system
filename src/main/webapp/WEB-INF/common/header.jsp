@@ -10,6 +10,12 @@
 <!--bootstrap框架-->
 <link href="${ctx}/statics/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <script src="${ctx}/statics/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<%--SweetAlert弹出框--%>
+<link href="${ctx}/statics/sweetalert/dist/sweetalert.css" type="text/css" rel="stylesheet">
+<script src="${ctx}/statics/sweetalert/dist/sweetalert.min.js"></script>
+<%--图片上传--%>
+<script src="${ctx}/statics/upload-img/js/index.js"></script>
+<link href="${ctx}/statics/upload-img/css/index.css" type="text/css" rel="stylesheet">
 <%--自定义的CSS样式--%>
 <link href="${ctx}/statics/css/login.css" rel="stylesheet" type="text/css">
 <link href="${ctx}/statics/css/pageBar.css" rel="stylesheet" type="text/css"/>
@@ -19,6 +25,7 @@
 
 <%--js--%>
 <script src="${ctx}/statics/js/admin.js" type="text/javascript"></script>
+<script src="${ctx}/statics/js/comment.js" type="text/javascript"></script>
 <script src="${ctx}/statics/js/pageBar.js" type="text/javascript"></script>
 
 <nav class="navbar navbar-default" id="top">

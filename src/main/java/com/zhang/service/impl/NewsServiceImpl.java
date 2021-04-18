@@ -67,4 +67,22 @@ public class NewsServiceImpl implements NewsService {
         News news = newsMapper.queryNewsById(nid);
         return news;
     }
+
+    @Override
+    public Integer deleteNewsById(Integer id) {
+        Integer i = newsMapper.deleteNewsById(id);
+        return i;
+    }
+
+    @Override
+    public Integer modifyNews(News news) {
+        Integer i = newsMapper.modifyNews(news);
+        return i;
+    }
+
+    @Override
+    public Integer addNews(News news) {
+        Integer i = newsMapper.addNews(news);
+        return i;
+    }
 }

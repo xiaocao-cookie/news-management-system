@@ -13,16 +13,37 @@
         INSERT INTO `news_user`(`loginName`, `password`, `sex`, `phone`, `idCard`, `type`)
         VALUES (#{loginName},#{password},#{sex},#{phone},#{idCard},#{type});
     </insert>
-
+    <update id="modifyUser">
+        UPDATE `news_user`
+        SET `loginName` = #{loginName}, `password` = #{password}, `sex` = #{sex},
+            `phone` = #{phone}, `idCard` = #{idCard}, `type` = #{type}
+        WHERE `uid` = #{uid};
+    </update>
+    <delete id="deleteUserById">
+        DELETE FROM `news_user` WHERE uid = #{uid}
+    </delete>
     <select id="loginUser" resultType="com.zhang.entity.User">
         SELECT * FROM `news_user`
         WHERE loginName = #{loginName} AND `password` = #{password}
     </select>
     <select id="getPageUsers" resultType="com.zhang.entity.User">
-        SELECT * FROM `news_user` limit #{from},#{pageSize}
+        SELECT * FROM `news_user` WHERE 1=1
+        <if test="loginName != null and loginName != ''">
+            and loginName LIKE CONCAT('%',#{loginName},'%')
+        </if>
+        <if test="phone != null and phone != ''">
+            and phone LIKE CONCAT('%',#{phone},'%')
+        </if>
+         limit #{from},#{pageSize}
     </select>
     <select id="queryTotalCount" resultType="java.lang.Integer">
-        SELECT COUNT(1) FROM news_user
+        SELECT COUNT(1) FROM news_user where 1 = 1
+        <if test="loginName != null and loginName != ''">
+            and loginName LIKE CONCAT('%',#{loginName},'%')
+        </if>
+        <if test="phone != null and phone != ''">
+            and phone LIKE CONCAT('%',#{phone},'%')
+        </if>
     </select>
     <select id="queryUserById" resultType="com.zhang.entity.User">
         SELECT * FROM `news_user` WHERE uid = #{uid}

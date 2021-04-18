@@ -7,6 +7,7 @@ import com.zhang.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Service
@@ -48,4 +49,23 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> commentList = commentMapper.queryCommentsByCnid(cnid);
         return commentList;
     }
+
+    @Override
+    public List<Comment> queryCommentListByCpid(Integer cpid) {
+        List<Comment> commentList = commentMapper.queryCommentListByCpid(cpid);
+        return commentList;
+    }
+
+    @Override
+    public Integer addComment(Comment comment) {
+        Integer i = commentMapper.addComment(comment);
+        return i;
+    }
+
+    @Override
+    public Integer addPicComment(Comment comment) {
+        Integer i = commentMapper.addPicComment(comment);
+        return i;
+    }
+
 }

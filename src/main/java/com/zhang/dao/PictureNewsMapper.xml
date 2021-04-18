@@ -5,7 +5,27 @@
     namespace: 对应dao的全限定名(包名+接口名),也就是../*Mapper
 -->
 <mapper namespace="com.zhang.dao.PictureNewsMapper">
-
+    <insert id="addPicNews">
+        INSERT INTO `news_picture`(`ptid`, `ptitle`, `pauthor`,
+        `pcontent1`, `pPicPath1`, `pcontent2`, `pPicPath2`,
+        `pcontent3`, `pcontent4`,`pCreateDate`)
+        VALUES (#{ptid},#{ptitle},#{pauthor},
+        #{pcontent1},'d02cb6419d168ec9cf2297c940c2b61d.jpg', #{pcontent2},'d02cb6419d168ec9cf2297c940c2b61d.jpg',
+        #{pcontent3},#{pcontent4},#{pCreateDate});
+    </insert>
+    <update id="updatePicNewsById">
+        UPDATE `vnews`.`news_picture`
+        SET `ptid` = #{ptid}, `ptitle` = #{ptitle}, `pauthor` = #{pauthor},
+        `pcontent1` = #{pcontent1}, `pPicPath1` = 'd02cb6419d168ec9cf2297c940c2b61d.jpg',
+        `pcontent2` = #{pcontent2}, `pPicPath2` = 'd02cb6419d168ec9cf2297c940c2b61d.jpg',
+        `pcontent3` = #{pcontent3}, `pPicPath3` = '22a8a90657c56b114df6e3f0b0f08e6b.jpg',
+        `pcontent4` = #{pcontent4},
+        `pModifyDate` = SYSDATE()
+        WHERE `pid` = #{pid};
+    </update>
+    <delete id="deletePictureNews">
+        DELETE FROM `news_picture` WHERE pid = #{id}
+    </delete>
     <select id="queryPictureNewsByPtid" resultType="com.zhang.entity.PictureNews">
         SELECT * FROM news_picture WHERE ptid = #{ptid}
     </select>
@@ -14,5 +34,11 @@
     </select>
     <select id="queryPictureNewsByPid" resultType="com.zhang.entity.PictureNews">
         SELECT * FROM `news_picture` WHERE pid = #{pid}
+    </select>
+    <select id="queryPagePictureNews" resultType="com.zhang.entity.PictureNews">
+        SELECT * FROM `news_picture` limit #{from},#{pageSize}
+    </select>
+    <select id="queryNewsTotal" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM `news_picture`
     </select>
 </mapper>

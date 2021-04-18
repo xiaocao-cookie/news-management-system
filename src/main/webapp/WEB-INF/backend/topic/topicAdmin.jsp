@@ -29,19 +29,6 @@
             <!--  主题列表的面板显示   -->
             <div class="tab-pane active" id="topicListPane">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="text-center">
-                            <form class="form-inline">
-                                <div class="form-group">
-                                    <label for="topicName">主题名</label>
-                                    <input type="text" class="form-control" id="topicName">
-                                </div>
-                                <div class="form-group">
-                                    <input type="button" class="btn btn-primary" value="查询">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                     <div class="panel-body">
                         <div class="col-md-10 col-md-offset-1">
                             <table class="table table-hover table-striped table-bordered">
@@ -59,8 +46,8 @@
                                         <td><center>${topic.tname}</center></td>
                                         <td>
                                             <center>
-                                                <button class="btn btn-primary" type="button">修改</button>
-                                                <button class="btn btn-primary" type="button">删除</button>
+                                                <button class="btn btn-primary" data-toggle="modal" data-target="#addTopicModal" type="button" onclick="toModifyTopic('${topic.tname}',${topic.tid});">修改</button>
+                                                <button class="btn btn-primary" type="button" onclick="delTopic(${topic.tid});">删除</button>
                                             </center>
                                         </td>
                                     </tr>
@@ -84,16 +71,17 @@
                         </div>
                         <div class="col-md-7 col-md-offset-2">
                             <div class="modal-body">
-                                <form class="form-inline" method="post" action="${ctx}/topic/addTopicName">
+                                <form class="form-inline">
                                     <div class="form-group">
                                         <label for="addTopicName">主题名</label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="text" class="form-control" id="addTopicName" name="addTopicName">
+                                        <input type="text" class="form-control" id="addTopicName" name="topicName">
                                     </div>
                                     <br><br>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary" style="margin-left: 220px">提交</button>
+                                        <button type="button" class="btn btn-primary" style="margin-left: 220px" onclick="addAndModifyTopic();">提交</button>
                                     </div>
+                                    <input hidden type="text" name="topicId">
                                 </form>
                             </div>
                         </div>

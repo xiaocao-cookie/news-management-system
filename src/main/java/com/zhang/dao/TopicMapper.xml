@@ -8,6 +8,13 @@
     <insert id="addTopicName">
         INSERT INTO `news_topic`( `tname`) VALUES (#{topicName})
     </insert>
+    <update id="modifyTopicName">
+        UPDATE `news_topic` SET `tname` = #{topicName}
+        WHERE `tid` = #{topicId}
+    </update>
+    <delete id="deleteTopic">
+        DELETE FROM `news_topic` WHERE tid = #{id}
+    </delete>
     <select id="getAllTopics" resultType="com.zhang.entity.Topic">
         SELECT * FROM `news_topic` ORDER BY tid ASC
     </select>

@@ -14,6 +14,7 @@ import java.util.List;
 public class Comment {
     private Integer cid;
     private Integer cnid;
+    private Integer cpid;
     private String ccontent;
     private Date cdate;
     private Integer cauthorId;  //对应user中的uid
@@ -23,4 +24,5 @@ public class Comment {
 
     private List<Comment> commentList;
     private List<User> userList;
+    private List<Reply> replyList;
 }

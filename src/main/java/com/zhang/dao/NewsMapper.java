@@ -22,4 +22,10 @@ public interface NewsMapper {
     public List<News> queryNewsByNtitle(String ntitle);
     //通过id查询新闻
     public News queryNewsById(Integer nid);
+    //通过id删除新闻
+    public Integer deleteNewsById(Integer id);
+    //根据id修改新闻
+    public Integer modifyNews(News news);
+    //添加新闻
+    public Integer addNews(News news);
 }

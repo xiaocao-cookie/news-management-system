@@ -31,10 +31,10 @@ public class UserServiceImpl implements UserService {
 
     //获取用户列表
     @Override
-    public Page queryPageUsers(Integer currentPage) {
+    public Page queryPageUsers(Integer currentPage,String loginName,String phone) {
         Page page = new Page();
         //查询用户总数
-        Integer totalCount = userMapper.queryTotalCount();
+        Integer totalCount = userMapper.queryTotalCount(loginName, phone);
         page.setTotalCount(totalCount);
         //当前页面在合理范围
         if (currentPage < 1){
@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
         }
         page.setUrl("/user/getUserList");
         page.setCurrentPage(currentPage);
-        List<User> userList = userMapper.getPageUsers((currentPage-1)*page.getPageSize(),page.getPageSize());
+        List<User> userList = userMapper.getPageUsers((currentPage-1)*page.getPageSize(),page.getPageSize(),loginName,phone);
         page.setUserList(userList);
         return page;
     }
@@ -59,6 +59,18 @@ public class UserServiceImpl implements UserService {
     public List<User> queryUserById(Integer uid) {
         List<User> userList = userMapper.queryUserById(uid);
         return userList;
+    }
+
+    @Override
+    public Integer deleteUserById(Integer uid) {
+        Integer i = userMapper.deleteUserById(uid);
+        return i;
+    }
+
+    @Override
+    public Integer modifyUser(User user) {
+        Integer i = userMapper.modifyUser(user);
+        return i;
     }
 
 }

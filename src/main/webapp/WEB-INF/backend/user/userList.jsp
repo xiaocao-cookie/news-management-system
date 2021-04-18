@@ -77,25 +77,17 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="text-center">
-                                <form class="form-inline">
+                                <form action="${ctx}/user/getUserList" method="post" class="form-inline">
                                     <div class="form-group">
                                         <label for="name">登录名</label>
-                                        <input type="text" class="form-control" id="name">
+                                        <input type="text" value="${loginName}"  name="loginName" class="form-control" id="name">
                                     </div>
                                     <div class="form-group">
                                         <label for="phone">手机</label>
-                                        <input type="text" class="form-control" id="phone">
+                                        <input style="height: 34px;padding-left: 12px" value="${phone}" type="text" name="phone" class="form-control" id="phone">
                                     </div>
                                     <div class="form-group">
-                                        <label for="state">性别</label>
-                                        <select id="state" class="form-control">
-                                            <option class="active">--请选择--</option>
-                                            <option>男</option>
-                                            <option>女</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="button" class="btn btn-primary" value="查询">
+                                        <input type="submit" class="btn btn-primary" value="查询">
                                     </div>
                                 </form>
                             </div>
@@ -105,7 +97,6 @@
                                 <thead>
                                 <tr>
                                     <th class="text-center">登录名</th>
-                                    <th class="text-center">密码</th>
                                     <th class="text-center">手机号</th>
                                     <th class="text-center">身份证号</th>
                                     <th>性别</th>
@@ -117,14 +108,14 @@
                                 <c:forEach items="${userList}" var="temp">
                                     <tr>
                                         <td>${temp.loginName}</td>
-                                        <td>${temp.password}</td>
                                         <td>${temp.phone}</td>
                                         <td>${temp.idCard}</td>
                                         <td>${temp.sex == 0?'男':'女'}</td>
                                         <td>${temp.type == 0?'管理员':'普通用户'}</td>
                                         <td style="padding-left: 30px;width: 111px;">
-                                            <button class="btn btn-primary" type="button" id="modifyUser">修改</button>
-                                            <button class="btn btn-primary" type="button" id="deleteUser">删除</button>
+                                            <button class="btn btn-primary" data-toggle="modal" data-target="#modifyUserModal" value="${temp.uid}" type="button" id="modifyUser"
+                                                    onclick="toModifyUser(${temp.uid},'${temp.loginName}','${temp.password}','${temp.phone}','${temp.idCard}',${temp.sex},${temp.type});">修改</button>
+                                            <button class="btn btn-primary" value="${temp.uid}" type="button" id="deleteUser" onclick="delUser(${temp.uid});">删除</button>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -135,6 +126,64 @@
                     </div>
                 </div>
             </c:if>
+            <%-- 修改用户的模态框  --%>
+            <div id="modifyUserModal" class="modal fade modifyUserModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3>修改用户</h3>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-inline" style="padding-left: 125px">
+                                <div class="form-group">
+                                    &nbsp;&nbsp;
+                                    登录名
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" name="oldLoginName" value="" class="form-control" id="oldLoginName" placeholder="长度在4-16的范围内" required pattern="[A-Za-z0-9]{4,16}" style="padding-left: 10px;width: 214px">
+                                </div>
+                                <br><br>
+                                <div class="form-group">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    密码
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="password" class="form-control" value="" id="oldPwd" name="oldPassword" placeholder="密码由六位数字组成"  required pattern="[0-9]{6}" style="width: 214px;height:40px">
+                                </div>
+                                <br><br>
+                                <div class="form-group">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    性别
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" class="form-control" name="sex" value="0">男
+                                    <input type="radio" class="form-control" name="sex" value="1">女
+                                </div>
+                                <br><br>
+                                <div class="form-group">
+                                    &nbsp;&nbsp;
+                                    手机号
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" class="form-control" value="" id="oldPhone" name="oldPhone" placeholder="以13、15、18开头"  required pattern="1[3,5,8]\d{9}" style="margin-left:3px;width: 214px;height:40px">
+                                </div>
+                                <br><br>
+                                <div class="form-group">
+                                    身份证号
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" class="form-control" value="" id="oldIdCard" name="oldIdCard" style="padding-left: 10px;width: 214px" placeholder="请输入18位的身份证号" required pattern="[1-9]\d{5}(18|19|20|(3\d))\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]">
+                                </div>
+                                <br><br>
+                                <input hidden type="text" name="oldUserId" value="">
+                                <input hidden type="text" name="oldUserType" value="">
+                                <div class="form-group text-center" style="margin-left: 200px">
+                                    <button data-toggle="modal" data-target=".message" type="button" class="btn btn-primary" onclick="modifyUser();">提交</button>
+                                    <button type="reset" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--  用户添加的模态框显示   -->
             <div class="modal fade" id="addUserModal">
                 <div class="modal-dialog">
@@ -143,63 +192,48 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h3>添加用户</h3>
                         </div>
-                        <div class="col-md-8 col-md-offset-3">
-                            <div class="modal-body">
-                                <form class="form-inline" action="${ctx}/user/addUser">
-                                    <div class="form-group">
-                                        &nbsp;&nbsp;
-                                        登录名
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="text" name="loginName" class="form-control" id="loginName" placeholder="长度在4-16的范围内" required pattern="[A-Za-z0-9]{4,16}" style="padding-left: 10px;width: 214px">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;
-                                        密码
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="password" class="form-control" id="addPwd" name="password" placeholder="密码由六位数字组成" autocomplete="off" required pattern="[0-9]{6}" style="width: 214px;height:40px">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;
-                                        性别
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" class="form-control" name="sex" value="0" checked>男
-                                        <input type="radio" class="form-control" name="sex" value="1">女
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        &nbsp;&nbsp;
-                                        手机号
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="text" class="form-control" id="telphone" name="telphone" placeholder="以13、15、18开头"  required pattern="1[3,5,8]\d{9}" style="margin-left:3px;width: 214px;height:40px">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        身份证号
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="text" class="form-control" id="idCard" name="idCard" style="padding-left: 10px;width: 214px" placeholder="请输入18位的身份证号" required pattern="[1-9]\d{5}(18|19|20|(3\d))\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]">
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group">
-                                        用户类型
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <select class="form-control" id="userType" name="userType">
-                                            <option class="active" value="1">普通用户</option>
-                                            <option value="0">管理员</option>
-                                        </select>
-                                    </div>
-                                    <br><br>
-                                    <div class="form-group text-center" style="margin-left: 200px">
-                                        <button type="submit" class="btn btn-primary">提交</button>
-                                        <button type="reset" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        <div class="modal-footer">
-                            <hr style="display: none">
+                        <div class="modal-body">
+                            <form class="form-inline" style="padding-left: 125px">
+                                <div class="form-group">
+                                    &nbsp;&nbsp;
+                                    登录名
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" name="loginName" class="form-control" id="loginName" placeholder="长度在4-16的范围内" required pattern="[A-Za-z0-9]{4,16}" style="padding-left: 10px;width: 214px">
+                                </div>
+                                <br><br>
+                                <div class="form-group">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    密码
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="password" class="form-control" id="addPwd" name="password" placeholder="密码由六位数字组成" autocomplete="off" required pattern="[0-9]{6}" style="width: 214px;height:40px">
+                                </div>
+                                <br><br>
+                                <div class="form-group">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    性别
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="radio" class="form-control" name="sex" value="0" checked>男
+                                    <input type="radio" class="form-control" name="sex" value="1">女
+                                </div>
+                                <br><br>
+                                <div class="form-group">
+                                    &nbsp;&nbsp;
+                                    手机号
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" class="form-control" id="telphone" name="telphone" placeholder="以13、15、18开头"  required pattern="1[3,5,8]\d{9}" style="margin-left:3px;width: 214px;height:40px">
+                                </div>
+                                <br><br>
+                                <div class="form-group">
+                                    身份证号
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <input type="text" class="form-control" id="idCard" name="idCard" style="padding-left: 10px;width: 214px" placeholder="请输入18位的身份证号" required pattern="[1-9]\d{5}(18|19|20|(3\d))\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]">
+                                </div>
+                                <br><br>
+                                <div class="form-group text-center" style="margin-left: 200px">
+                                    <button type="button" class="btn btn-primary" onclick="addUser();">提交</button>
+                                    <button type="reset" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

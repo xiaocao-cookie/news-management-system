@@ -47,7 +47,8 @@
                 <div class="panel-body">
                     <div class="list-group">
                         <a href="${ctx}/news/index.html" class="list-group-item <c:if test="${menu==6}"> active</c:if>" id="newsList">新闻列表</a>
-                        <a href="#" class="list-group-item <c:if test="${menu==7}"> active</c:if>" id="newsAdd">新闻添加</a>
+                        <a href="${ctx}/news/getPictureNews" class="list-group-item <c:if test="${menu==10}"> active </c:if>" id="pictureNews">图片新闻</a>
+                        <a href="${ctx}/news/toAddNews" class="list-group-item <c:if test="${menu==7}"> active</c:if>" id="newsAdd">新闻添加</a>
                     </div>
                 </div>
             </div>

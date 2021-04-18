@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -23,4 +24,7 @@ public class PictureNews {
     private String pcontent4;
     private String pPicPath4;
     private Date pCreateDate;
+    private Date pModifyDate;
+    private List<Topic> topicList;
+    private  List<Comment> commentList;
 }
